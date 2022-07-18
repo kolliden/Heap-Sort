@@ -224,12 +224,17 @@ const check = async (array) => {
   return true;
 }
 
-async function swap(arr, leftIndex, rightIndex){
-    var temp = arr[leftIndex];
-    arr[leftIndex] = arr[rightIndex];
-    arr[rightIndex] = temp;
+const heapSort = (arr) => {
+  var sorted = [];
+  var heap1 = new MaxHeap();
+  
+  heap1.init(arr);
+  
+  for(let i=0; i<arr.length; i++){
+      sorted.push(heap1.delete(onAction));
+  }
+  return sorted;
 }
-
 
 const start = () => {
   initCanvas();
@@ -245,12 +250,12 @@ const start = () => {
 
   var startTime = performance.now()
 
- // first call to quick sort
-  var sortedArray = quickSort(arr, 0, arr.length - 1);
+ //First call to heapSort 
+  let sortedArray = heapSort(arr);
 
   speed = 5;
   check(sortedArray);
-  console.log(sortedArray); //prints [2,3,5,6,7,9]
+  console.log(sortedArray);
 
   var endTime = performance.now()
 
